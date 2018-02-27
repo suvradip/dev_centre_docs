@@ -1,14 +1,13 @@
 ---
-permalink: exporting-charts/using-fusionexport/tutorials/export-a-dashboard.html
 title: Export a dashboard | FusionCharts
 description: This article talks about the SDKs used for exporting a dashboard.
 heading: Export a dashboard
-chartPresent: False
+breadcrumb: [["Home", "/"], ["Export a Dashboard"]]
 ---
 
-To export an image of the dashboard, create a template file as an HTML file, containing the layout and supporting static resources __(JS, CSS, images, and fonts)__.
+To export an image of the dashboard using CLI, create a template file as an HTML file, containing the layout and supporting static resources **(JS, CSS, images, and fonts)**.
 The template must contain the placeholder elements for the charts, preferably using `<div>`. The chart config array must contain the charts with the `renderAt` attribute that match the IDs of the elements stated above. 
-To export a dashboard, you can use the CLI or SDKs of the languages mentioned below, using the command given below:
+
 
 <div class="code-wrapper">
 <ul class="code-tabs extra-tabs">
