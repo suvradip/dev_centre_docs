@@ -1,12 +1,11 @@
 ---
-permalink: exporting-charts/using-fusionexport/installation/add-language-sdks.html
 title: Add Language SDKs | FusionCharts
 description: This section is a language SDK installation guide
 heading: Add Language SDKs
-chartPresent: False
+breadcrumb: [["Home", "/"], ["Add Language SDKs"]]
 ---
 
-The FusionExport Language SDKs are tools for creating and managing the FusionExport system from various supported languages for direct export integration in your application. It works with the FusionExport Desktop application (local export) based on simple APIs.
+The FusionExport Language SDKs are tools for creating and managing the FusionExport system from various supported languages for direct export integration in your application. It works with the FusionExport Service based on simple APIs.
 
 ## Installation and basic usage guide for all the language SDKs
 

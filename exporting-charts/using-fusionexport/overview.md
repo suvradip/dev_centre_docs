@@ -1,9 +1,8 @@
 ---
-permalink: exporting-charts/using-fusionexport/overview.html
-title: Overview | FusionCharts
+title: FusionExport Overview | FusionCharts
 description: Talks about FusionExport
 heading: Overview
-chartPresent: False
+breadcrumb: [["Home", "/"], ["Overview"]]
 ---
 
 With FusionExport, you can export any JavaScript chart as a static image, bulk export multiple charts as a zip file, or export multiple charts embedded in an HTML dashboard template.
@@ -21,12 +20,6 @@ __Two main parts make FusionExport :__
 
 ![FusionExport Architecture Diagram]({% site.baseurl %}/images/fusionexport-architecture-diagram.png)
 
-> **To interact with FusionExport, you can either go for simple CLI or use the language of your choice.**
+> **To interact with FusionExport, you can either go for simple CLI or use the language of your choice or simply using the FusionCharts library.**
 
-> If you're using the CLI, choose between FusionExport Desktop (local export) or, FusionExport Web Service (remote export) based on your requirement.
-
-> If you're using any of the 6 available language SDKs, use FusionExport Desktop (local export) to export your charts & dashboards. SDKs are available for Node.js, Java, C#, PHP, Python and Golang.
-
-__For the processing site, you can choose between remote and local.__
-To process export activities locally, install FusionExport Desktop which talks to the client-interface via a socket connection. FusionExport Desktop also comes with a GUI that lets you monitor ongoing operations. 
-FusionExport Web Service is our remote export engine that communicates with your interface through HTTP connections.
+> For the server side, choose between FusionExport Service or FusionExport Desktop and for the client side, you can choose the CLI, 6 SDKs or just the FusionCharts library.
