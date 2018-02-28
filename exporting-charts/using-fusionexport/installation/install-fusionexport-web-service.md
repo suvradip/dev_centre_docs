@@ -6,6 +6,8 @@ heading: Install FusionExport Web Service
 chartPresent: False
 ---
 
+> FusionExport Web Service is deprecated. All the functionalities of FusionExport Web service is achievable using **FusionExport Service**.
+
 FusionExport web service exposes export service over HTTP invocations. In case of remote export requirements, both the FusionExport CLI module and the FusionCharts client library take help of this module to get the export done.
 
 Web Service internally uses the FusionExport core module to generate the required images and data.

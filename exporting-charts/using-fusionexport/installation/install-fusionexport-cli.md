@@ -8,7 +8,7 @@ chartPresent: False
 
 The FusionExport Command Line Interface (CLI) is a tool for creating and managing the FusionExport export system from the command line/shell of various operating systems.
 
-It is an open source tool that is built using node.js. It works with the FusionExport Desktop application (local export) as well as with FusionExport Web Service (remote export) with simple CLI options.
+It is an open source tool that is built using Node.js. It works with **FusionExport Service** as well as with **FusionExport Desktop** using simple CLI options.
 
 ## Prerequisites
 

@@ -24,6 +24,13 @@ Exports charts and dashboards with the specified export configurations. This met
 **ExportConfig**
 FusionExport accepts multiple options at a time. Using the SDK, you can set different options while exporting.
 
+**static saveExportedFiles(outputFileBag, dirPath = '.')**
+It is a helper function to save the whole **outputFileBag** in the specified directory. It can also take an enclosing directory path as the second parameter. The directory path will be appended with the output file paths before saving.
+
+**static getExportedFileNames(exportedOutput)**
+It extracts all the realPath from the **outputFileBag**.
+
+
 ### Events
 
 **exportDone**

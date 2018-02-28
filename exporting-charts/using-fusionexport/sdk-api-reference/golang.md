@@ -19,12 +19,19 @@ type ExportManager struct {
 **func NewExportManager () ExportManager**
 It constructs an ExportManager with the default export server's IP address and port and returns it.
 
-**func (em *ExportManager) setConnectionConfig (host string, port int)**
+**func (em *ExportManager) SetConnectionConfig (host string, port int)**
 It sets export server's IP address and port.
 
 **func (em *ExportManager) Export (exportConfig ExportConfig, exportDone func([]OutFileBag, error), exportStateChanged func(ExportEvent)) (Exporter, error)**
 
 It exports charts with the specified configurations, **ExportDone** listener and **ExportStateChanged** listener, and returns an **Exporter** instance.
+
+**func SaveExportedFiles(fileBag []OutFileBag) error**
+It is a helper function to save the whole **OutputFileBag** in the intended path.
+
+**func GetExportedFileNames(fileBag []OutFileBag) []string**
+It extracts all the realPath from the **OutputFileBag**
+
 
 ## type ExportEvent
 
@@ -56,12 +63,11 @@ Exporter is responsible for any individual export request made by the **ExportMa
 
 ```go
 type Exporter struct {
-    ExportDoneListener func([]OutFileBag, error)
+    ExportDoneListener        func([]OutFileBag, error)
     ExportStateChangeListener func(ExportEvent)
-    ExportConfig ExportConfig
-    ExportServerHost string
-    ExportServerPort int
-    tcpClient net.Conn
+    ExportConfig              ExportConfig
+    ExportServerHost          string
+    ExportServerPort          int
 }
 ```
 
@@ -117,7 +123,7 @@ Returns all configuration values in an array.
 **func (config *ExportConfig) Clone () ExportConfig**
 Returns a new instance of ExportConfig with same content as the current one.
 
-**func (config *ExportConfig) GetFormattedConfigs () string**
+**func (config *ExportConfig) GetFormattedConfigs() (string, error)**
 Returns all export configurations in JSON format.
 
 ## Supported Export Configurations
@@ -131,8 +137,6 @@ The supported export configurations are as follows:
 * `templateFilePath` - Sets the path of the HTML template used for dashboard export.
 
 * `callbackFilePath` - Sets the path for a Javascript file that would be injected at the bottom of the page for each export.
-
-* `libraryDirectoryPath` - Sets the root path of fusionCharts Javascript library to use the licensed version of FusionCharts.
 
 * `asyncCapture` - Sets if the export process will wait for `CAPTURE_EXIT` event.
 

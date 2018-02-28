@@ -5,7 +5,7 @@ heading: Class ExportManager
 breadcrumb: [["Home", "/"], ["Python"]]
 ---
 
-__ExportManager__ acts as a client, sending the export chart configuration to the __ExportServer__ and delivering the exported charts through the attached listeners.
+__ExportManager__ acts as a client, sending the export chart configuration to the **FusionExport Service** and delivering the exported charts through the attached listeners.
 
 ### Constructor
 
@@ -23,7 +23,6 @@ Saves the exported images in the specified folder.
 Returns the exported file names in a list.
 
 **port( [port] )**
-Exporter is responsible for any individual export request made by the ExportManager. Generally, the ExportManager uses this class internally to make chart exporting request to export server.
 If the port is given, then it updates the export server port with specified value. Otherwise it returns the current port.
 
 **host( [host] )**

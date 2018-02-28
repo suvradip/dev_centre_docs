@@ -5,7 +5,7 @@ heading: Class ExportManager
 breadcrumb: [["Home", "/"], ["Java"]]
 ---
 
-**ExportManager** acts as a client, sending the exports chart configuration to the __ExportServer__ and delivering the exported charts through the attached listeners.
+**ExportManager** acts as a client, sending the exports chart configuration to the **FusisonExport Service** and delivering the exported charts through the attached listeners.
 
 ### Constructors
 

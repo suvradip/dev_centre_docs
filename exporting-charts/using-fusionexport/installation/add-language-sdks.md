@@ -5,7 +5,7 @@ heading: Add Language SDKs
 breadcrumb: [["Home", "/"], ["Add Language SDKs"]]
 ---
 
-The FusionExport Language SDKs are tools for creating and managing the FusionExport system from various supported languages for direct export integration in your application. It works with the FusionExport Service based on simple APIs.
+The FusionExport Language SDKs are tools for interacting with FusionExport Service from various supported languages for direct export integration in your application. It works with the FusionExport Service based on simple APIs.
 
 ## Installation and basic usage guide for all the language SDKs
 
@@ -36,7 +36,7 @@ The FusionExport Language SDKs are tools for creating and managing the FusionExp
 
 <div class="tab csharp-tab">
 <strong>You can install the SDK using the NuGet package manager. To install, open the NuGet package manager console and run the following command:</strong>
-<pre><code class="language-cs">	$ Install-Package FusionExport -Version 1.0.0-beta</code></pre>
+<pre><code class="language-cs">	$ Install-Package FusionExport -Version 1.0.0</code></pre>
 <strong>To use the SDK into your project:</strong>
 <pre><code class="language-cs">	using FusionCharts.FusionExport.Client; </code></pre>
 </div>
@@ -52,7 +52,7 @@ The FusionExport Language SDKs are tools for creating and managing the FusionExp
 <strong>Then, add this SDK as a dependency to your build.gradle file:</strong>
 <pre><code class="language-java">
 	dependencies {
-		Compile "com.fusioncharts.fusionexport:fusionexport:1.0.0-beta"
+		compile "com.fusioncharts.fusionexport:fusionexport:1.0.0"
 	}
 </code></pre>
 <p><strong>Using Maven</strong></p>

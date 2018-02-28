@@ -5,7 +5,7 @@ heading: Class ExportManager
 breadcrumb: [["Home", "/"], ["C#"]]
 ---
 
-**ExportManager** acts as a client, sending the exports chart configuration to the **ExportServer** and delivering the exported charts through the attached listeners.
+**ExportManager** acts as a client, sending the exports chart configuration to the **FusionExport Service** and delivering the exported charts through the attached listeners.
 
 ### Constructors
 

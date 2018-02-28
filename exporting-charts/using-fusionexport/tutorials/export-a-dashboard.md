@@ -25,17 +25,17 @@ The template must contain the placeholder elements for the charts, preferably us
 <div>We’ll name the template file with the placeholder elements as <strong>template.html</strong>.</div>
 <div class="mt-20 pb-10"><strong>The following code goes into the template.html file:</strong></div>
 <pre><code class="custom-hlc language-html">
-	<!DOCTYPE html>
-	<html>
-	  <head>
-	    <meta charset="utf-8">
-	    <title>Chart</title>
-	  </head>
-	  <body>
-	    <div id="pie_chart"></div>
-	    <div id="column_chart"></div>
-	  </body>
-	</html>
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	  &lt;head&gt;
+	    &lt;meta charset=&quot;utf-8&quot;&gt;
+	    &lt;title&gt;Chart&lt;/title&gt;
+	  &lt;/head&gt;
+	  &lt;body&gt;
+	    &lt;div id=&quot;pie_chart&quot;&gt;&lt;/div&gt;
+	    &lt;div id=&quot;column_chart&quot;&gt;&lt;/div&gt;
+	  &lt;/body&gt;
+	&lt;/html&gt;
 </code></pre>
 <div class="mt-30 pb-10"><strong>The `multiple_charts_config.json` contains the configurations of the charts to be exported. The following code goes into the `multiple_charts_config.json` file: </strong></div>
 <pre><code class="custom-hlc language-json">
@@ -143,7 +143,7 @@ The template must contain the placeholder elements for the charts, preferably us
 <pre><code class="custom-hlc language-bash">
 	$ fe -c multiple_charts_config.json -T template.html
 </code></pre>
-<div class="mt-20 pb-10">The **--resources** option is not mandatory; it is required only when dynamically generated links or css links are used in the template. Most resources that are mentioned in the template, using the `&lt;link&gt;`, `&lt;script&gt;` or `&lt;img&gt;` tags, are found intelligently. 
+<div class="mt-20 pb-10">The **--resources** option is not mandatory; it is required only when dynamically generated links or css links are used in the template. Most resources that are mentioned in the template, using the `&lt; link &gt;`, `&lt; script &gt;` or `&lt; img &gt;` tags, are found intelligently. 
 
 If any additional fonts or links are present in the CSS or any dynamic links are included in the JavaScript file, you can specify them using the **--resources** option.</div>
 <div class="mt-20 pb-10"><strong>The format of the **--resources** option is as shown below:</strong></div>
