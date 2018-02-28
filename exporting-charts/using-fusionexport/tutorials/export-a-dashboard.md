@@ -5,9 +5,9 @@ heading: Export a dashboard
 breadcrumb: [["Home", "/"], ["Export a Dashboard"]]
 ---
 
-To export an image of the dashboard using CLI, create a template file as an HTML file, containing the layout and supporting static resources **(JS, CSS, images, and fonts)**.
-The template must contain the placeholder elements for the charts, preferably using `<div>`. The chart config array must contain the charts with the `renderAt` attribute that match the IDs of the elements stated above. 
+To export an image of the dashboard using CLI, create a template file as an HTML file containing the layout and supporting static resources **(JS, CSS, images, and fonts)**.
 
+The template must contain the placeholder elements for the charts, preferably using `<div>`. The chart config array must contain the charts with the `renderAt` attribute that match the IDs of the elements stated above. 
 
 <div class="code-wrapper">
 <ul class="code-tabs extra-tabs">
@@ -37,7 +37,7 @@ The template must contain the placeholder elements for the charts, preferably us
 	  </body>
 	</html>
 </code></pre>
-<div class="mt-30 pb-10"><strong>The multiple_charts_config.json contains the configurations of the charts to be exported. The following code goes into the multiple_charts_config.json file: </strong></div>
+<div class="mt-30 pb-10"><strong>The `multiple_charts_config.json` contains the configurations of the charts to be exported. The following code goes into the `multiple_charts_config.json` file: </strong></div>
 <pre><code class="custom-hlc language-json">
 	[
 	   {
@@ -136,15 +136,17 @@ The template must contain the placeholder elements for the charts, preferably us
 	   }
 	]
 </code></pre>
-<div class="mt-30 pb-10">Special attention needs to be given to the <strong>renderAt</strong> attribute. As you can see, our template contains two elements with the IDs <strong>#pie_chart</strong> and <strong>#column_chart</strong>.
+<div class="mt-30 pb-10">Special attention needs to be given to the `renderAt` attribute. As you can see, our template contains two `div` elements with the IDs <strong>#pie_chart</strong> and <strong>#column_chart</strong>.
 </div>
-<div class="mt-10 pb-10">In the configuration file, you need to include the same <strong>renderAt</strong> attribute so that when you finally export the charts, FusionExport will replace those divs with the actual charts.</div>
+<div class="mt-10 pb-10">In the configuration file, you need to include the same `renderAt` attribute so that when you finally export the charts, FusionExport will replace those `div`s with the actual charts.</div>
 <div class="mt-20 pb-10"><strong>To create the template, run the following command:</strong></div>
 <pre><code class="custom-hlc language-bash">
 	$ fe -c multiple_charts_config.json -T template.html
 </code></pre>
-<div class="mt-20 pb-10">The <strong>--resources</strong> option is not mandatory; it is needed only when --remote-export-enabled is set to true. Most resources that are mentioned in the template, using the &lt;link&gt;, &lt;script&gt; or &lt;img&gt; tags, are found intelligently. If any additional fonts or links are present in the CSS or any dynamic links are included in the JavaScript file, you can specify them using the <strong>--resources</strong> option.</div>
-<div class="mt-20 pb-10"><strong>The format of the --resources option is as shown below:</strong></div>
+<div class="mt-20 pb-10">The **--resources** option is not mandatory; it is required only when dynamically generated links or css links are used in the template. Most resources that are mentioned in the template, using the `&lt;link&gt;`, `&lt;script&gt;` or `&lt;img&gt;` tags, are found intelligently. 
+
+If any additional fonts or links are present in the CSS or any dynamic links are included in the JavaScript file, you can specify them using the **--resources** option.</div>
+<div class="mt-20 pb-10"><strong>The format of the **--resources** option is as shown below:</strong></div>
 <pre><code class="custom-hlc language-json">
 	{
 	    "images": [
