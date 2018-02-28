@@ -149,23 +149,15 @@ If any additional fonts or links are present in the CSS or any dynamic links are
 <div class="mt-20 pb-10"><strong>The format of the **--resources** option is as shown below:</strong></div>
 <pre><code class="custom-hlc language-json">
 	{
-	    "images": [
-	        "filename.jpg",
-	        "img/cat.png"
-	    ],
-	    "stylesheets": [
-	        "",
-	        ""
-	    ],
-	    "javascripts": [
-	        "",
-	        ""
-	    ],
-	    "fonts": [
-	        "",
-	        ""
-	    ]
-	}
+    "basePath": "src/build",
+    "include": [
+        "*.jpg",
+        "*.png"
+    ],
+    "exclude": [
+        "filename.jpg"
+    ]
+}
 </code></pre>
 </div>
 <div class="tab nodejs-tab">
