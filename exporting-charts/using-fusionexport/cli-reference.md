@@ -1,9 +1,8 @@
 ---
-permalink: exporting-charts/using-fusionexport/cli-reference.html
 title: CLI Reference | FusionCharts
 description: This article contains the list of cli references of FusionExport.
 heading: CLI Reference
-chartPresent: False
+breadcrumb: [["Home", "/"], ["CLI Reference"]]
 ---
 
 Here you'll get the list of FusionExport CLI references.
@@ -333,6 +332,25 @@ Example:
 $ fe -c single.json -t xlsx
 ```
 
+### quality (--quality, -q)
+
+Specifies the quality of the output file.
+
+**Default:** `better`
+
+Quality can be either of the following:
+
+* good: Exported image dimension to chart ratio - 1
+* better: Exported image dimension to chart ratio - 2
+* best: Exported image dimension to chart ratio - 3
+
+Example:
+
+```
+$ fe -c single.json -q best
+
+```
+
 ### width (--width, -W)
 Specifies the width of the chart.
 If this option is specified, all the charts will be rendered with the specified width.
@@ -359,11 +377,12 @@ $ fe -c chart.json -b custom.js
 ```
 
 ### template (--template, -T)
-HTML file to be used as a template for rendering the chart.
+HTML file for dashboard export.
 
 **Default:** `template.html`
 
-To export an image of a dashboard, create a template as an HTML file, containing the layout and supporting static resources __(JS, CSS, images,__ and __fonts)__. 
+To export an image of a dashboard, create a template as an HTML file, containing the layout and supporting static resources **(JS, CSS, images, and fonts)**.
+
 The template must contain placeholder elements for the charts, preferably `<divs>`. The chart config array must contain the charts with the `renderAt` attribute that match the IDs of the elements stated above.
 
 The following code goes into the HTML file:
@@ -490,39 +509,24 @@ $ fe -c multiple_charts_config.json -T template.html
 ```
 
 ### resources (--resources, -r)
-JSON file that contains all the resources that will be injected into the template while rendering charts.
+JSON file mentioning the resources required by the template.
 
 Default: **resources.json**
 
-This option is not mandatory; it is required only when `--remote-export-enabled` option is set to `true`. Most resources that are mentioned in the template using the `<link>`, `<script>` or `<img>` tags, are found intelligently. If any additional fonts and links are present in CSS or if any dynamic links are included in the JavaScript file, you can specify them using the `--resources` option.
+This option is not mandatory; it is required only when dynamically generated links or css links are used in the template. Most resources that are mentioned in the template using the `<link>`, `<script>` or `<img>` tags, are found intelligently. If any additional fonts and links are present in CSS or if any dynamic links are included in the JavaScript file, you can specify them using the `--resources` option.
 
 The format of the `--resources` option is as shown below:
 ```javascript
 {
-    "images": [
-        "filename.jpg",
-        "img/cat.png"
+    "basePath": "src/build",
+    "include": [
+        "*.jpg",
+        "*.png"
     ],
-    "stylesheets": [
-        "",
-        ""
-    ],
-    "javascripts": [
-        "",
-        ""
-    ],
-    "fonts": [
-        "",
-        ""
+    "exclude": [
+        "filename.jpg"
     ]
 }
-```
-
-### library-path (--library-path, -L)
-Path where the FusionCharts library is present.
-If you have a licensed version or custom FusionCharts library, you can use that to render your charts as well. Just pass the directory of the FusionCharts library using following command:
-```javascript
-$ fe -c multiple-charts-config.json -L licensed/fusioncharts
 ```
 
 ### dashboard-logo (--dashboard-logo, -G)
@@ -654,21 +658,79 @@ The supported log levels are:
 
 Both the number format and string format can be provided in this option.
 
-### remote-export-enabled (--remote-export-enabled, -R)
-Export the images using the remote export server API.
+### host (--host, -S)
 
-**Default:** `false`
+Host of fusionexport service.
 
-To export charts remotely, you need to deploy the FusionExport Web Service and get the export URL.
+**Default:** `127.0.0.1`
 
-### export-url (--export-url, -u)
-Export server url.
+Provide the host on which the fusionexport-service is running.
 
-**Default:** `export.api3.fusioncharts.com`
+You can provide the host using the following command:
 
-To export charts remotely, you need to deploy the FusionExport Web Service and get the export URL. 
+```
+$ fe -c single.json -S 192.156.56.65
+```
+### port (--port, -P)
 
-To do this, enable the `--remote-export-enabled` option and pass this option as shown in the command below:
-```javascript
-$ fe -c column_chart_config.json -R true -u http://localhost:3000/api/v1.0/export
+Port of fusionexport service.
+
+**Default:** `1337`
+
+Provide the port on which the fusionexport-service is running.
+
+You can provide the port using the following command:
+
+```
+$ fe -c single.json -S 192.156.56.65 -P 3443
+
+```
+
+### ftp-config (--ftp-config, -p)
+
+Config file for FTP connection during FTP export.
+
+During FTP export FTP configuration can be passed through this option as a JSON file. The JSON structure will be like:
+
+`ftpConfig.json`:
+
+```
+{
+    "host": "189.156.78.98",
+    "port": "1332",
+    "user": "someone",
+    "password": "faultysome"
+}
+
+```
+
+You can provide the ftp config using the following command:
+
+```
+$ fe -c single.json -o "ftp:fc-<%= number(1) %>" -p ftpConfig.json
+
+```
+
+### S3-config (--s3-config, -s)
+
+Config file for S3 connection during S3 export.
+
+During S3 export S3 configuration can be passed through this option as a JSON file. The JSON structure will be like:
+
+`s3Config.json`:
+
+```
+{
+    "bucket": "somebigbucket",
+    "accessKey": "ASDFSDF$#%FDSAF",
+    "secretAccessKey": "ASDFDSF#$RF%#WE$#^f35f2354frADFDSF"
+}
+
+```
+
+You can provide the S3 config using the following command:
+
+```
+$ fe -c single.json -o "s3:fc-<%= number(1) %>" -s s3Config.json
+
 ```

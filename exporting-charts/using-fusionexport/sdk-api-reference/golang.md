@@ -1,12 +1,11 @@
 ---
-permalink: exporting-charts/using-fusionexport/sdk-api-reference/golang.html
 title: Golang | FusionCharts
 description: Export from your desktop and web server using Golang SDKs. A complete list of API reference.
 heading: Type ExportManager
-chartPresent: False
+breadcrumb: [["Home", "/"], ["Golang"]]
 ---
 
-**ExportManager** acts as a client, sending the export chart configuration to the **ExportServer** and delivering the exported charts through the attached listeners.
+**ExportManager** acts as a client, sending the export chart configuration to the **FusionExport Service** and delivering the exported charts through the attached listeners.
 
 ```javascript
 type ExportManager struct {
@@ -89,11 +88,13 @@ type ExportConfig struct {
 **func NewExportConfig () ExportConfig**
 It constructs a new export configuration.
 
-**func (config *ExportConfig) Set (name, value string)**
-It sets a single export configuration with the specified configuration value. It returns the object so it can be chained.
+**func (config *ExportConfig) Set (name string, value interface{}) error**
+Sets a single export configuration with the specified configuration value.
+Returns the object so it can be chained.
 
-**func (config *ExportConfig) Get (name string) string.**
-It returns config value for the specified configuration name.
+
+**func (config *ExportConfig) Get (name string) interface{}**
+Returns the configuration value for the specified configuration name.
 
 **func (config *ExportConfig) Remove (name string)**
 Removes the specified configuration and returns true if configName is found. It also returns the object so that it can be chained.
@@ -119,6 +120,8 @@ Returns a new instance of ExportConfig with same content as the current one.
 **func (config *ExportConfig) GetFormattedConfigs () string**
 Returns all export configurations in JSON format.
 
+## Supported Export Configurations
+
 The supported export configurations are as follows:
 
 * `chartConfig` - Sets the configuration of a single chart or multiple charts in an array.
@@ -143,6 +146,12 @@ The supported export configurations are as follows:
 
 * `type` - Sets the format of the output file.
 
-* `exportFile` - Sets the output filename template, along with the path.
+* `quality` - Sets the quality of the output file. Provide either good, better or best.
+
+* `outputFile` - Sets the output filename template, along with the path.
+
+* `outputFileDefinition` - JS file defining functions or array to resolve output file names.
 
 * `exportAsZip` - Sets if the chart(s) will be exported as a zip file or as individual file(s).
+
+* `resourceFilePath` - JSON file having the dependencies of the template when templateFilePath is provided.
